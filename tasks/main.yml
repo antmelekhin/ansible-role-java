@@ -7,8 +7,8 @@
   loop_control:
     loop_var: distribution
 
-- name: 'Include OS-specific tasks for install packages'
+- name: 'Include tasks to install Java'
   ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
 
-- name: 'Include tasks for configure Java'
+- name: 'Include tasks to configure Java'
   ansible.builtin.import_tasks: 'configure.yml'

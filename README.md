@@ -1,7 +1,7 @@
 Java
 ====
 
-An Ansible role for install Java.
+An Ansible role to install Java.
 
 Requirements
 ------------
@@ -38,7 +38,6 @@ Example Playbook
 
   ```yaml
   ---
-
   - name: 'Install Java package'
     hosts: all
 
