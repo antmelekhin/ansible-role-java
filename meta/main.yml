@@ -2,7 +2,7 @@
 galaxy_info:
   author: antmelekhin
   role_name: java
-  description: An Ansible role for install Java.
+  description: An Ansible role to install Java.
 
   license: MIT
 
