@@ -1,5 +1,5 @@
 ---
-- name: 'Include OS-specific variables'
+- name: 'Include OS-specific Java variables'
   ansible.builtin.include_vars: '{{ distribution }}'
   with_first_found:
     - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
