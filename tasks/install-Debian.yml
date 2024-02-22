@@ -1,7 +1,7 @@
 ---
-- name: 'Install Java packages'
+- name: 'Install Java package'
   ansible.builtin.apt:
-    name: '{{ java_packages }}'
+    name: '{{ java_package }}'
     update_cache: true
     state: present
   become: true

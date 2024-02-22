@@ -1,0 +1,2 @@
+---
+_default_java_package: "{{ (ansible_distribution_major_version == '10') | ternary('openjdk-11-jre', 'openjdk-17-jre') }}"

@@ -1,2 +1,2 @@
 ---
-java_packages: '{{ _java_packages }}'
+java_package: '{{ _default_java_package }}'
