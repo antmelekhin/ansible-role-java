@@ -1,6 +1,6 @@
 ---
-- name: 'Install Java packages'
+- name: 'Install Java package'
   ansible.builtin.package:
-    name: '{{ java_packages }}'
+    name: '{{ java_package }}'
     state: present
   become: true

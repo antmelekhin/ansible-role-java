@@ -24,7 +24,7 @@ Requirements
 Role Variables
 --------------
 
-- `java_packages` List of `Java` packages (see default values in `vars/*.yml`).
+- `java_package` `Java` package name (see default values in `vars/*.yml`).
 
 Dependencies
 ------------
