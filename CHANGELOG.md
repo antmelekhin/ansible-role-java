@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.2](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.1...v1.0.2) (2024-03-26)
+
+
+### Fixes
+
+* add missing become ([#3](https://github.com/antmelekhin/ansible-role-java/issues/3)) ([ffa0692](https://github.com/antmelekhin/ansible-role-java/commit/ffa0692ae4b7057ec4945572b04e631f4c946b0b))
+
+
+### Styles
+
+* add empty line after ansible comment ([6766872](https://github.com/antmelekhin/ansible-role-java/commit/6766872696d4c0dd69a8428a8ab7055d46c6d231))
+
+
+### Tests
+
+* **fix:** set `role_name_check` as skip_list ([e6826f2](https://github.com/antmelekhin/ansible-role-java/commit/e6826f219de3c8869c5bb7cd5290642dd48c677f))
+
 ## [1.0.1](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.0...v1.0.1) (2024-02-22)
 
 
