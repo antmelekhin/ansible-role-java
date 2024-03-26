@@ -5,3 +5,4 @@
     dest: '/etc/profile.d/java_home.sh'
     mode: 0755
   when: java_home is defined and java_home
+  become: true
