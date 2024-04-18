@@ -3,5 +3,5 @@
   ansible.builtin.apt:
     name: '{{ java_package }}'
     update_cache: true
-    state: present
+    state: 'present'
   become: true
