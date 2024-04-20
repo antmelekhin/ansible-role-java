@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.3](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.2...v1.0.3) (2024-04-20)
+
+
+### Code Refactoring
+
+* rm loop for `include_vars` ([bff4770](https://github.com/antmelekhin/ansible-role-java/commit/bff4770431cbdad94d3258316bed25f9a44842f1))
+
+
+### Continuous Integration
+
+* update release rules ([e64883c](https://github.com/antmelekhin/ansible-role-java/commit/e64883c5c8ee8904e59e0fe53d7d2e40c21bd2ca))
+* update workflows ([3ad97db](https://github.com/antmelekhin/ansible-role-java/commit/3ad97db3a04a6cc85df2f97d8973b67a9fb87dc5))
+
+
+### Styles
+
+* quote strings ([9891ea1](https://github.com/antmelekhin/ansible-role-java/commit/9891ea103966caac3584ca3c3aefcb4485356eb4))
+
 ## [1.0.2](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.1...v1.0.2) (2024-03-26)
 
 
