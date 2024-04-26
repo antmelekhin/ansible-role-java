@@ -4,4 +4,5 @@
     name: '{{ java_package }}'
     update_cache: true
     state: 'present'
+  when: not ansible_check_mode
   become: true
