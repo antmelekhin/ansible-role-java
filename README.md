@@ -34,16 +34,16 @@ None.
 Example Playbook
 ----------------
 
-- Install `Java` package:
+Install `Java` package:
 
-  ```yaml
-  ---
-  - name: 'Install Java package'
-    hosts: all
+```yaml
+---
+- name: 'Install Java package'
+  hosts: all
 
-    roles:
-      - role: antmelekhin.java
-  ```
+  roles:
+    - role: antmelekhin.java
+```
 
 License
 -------
