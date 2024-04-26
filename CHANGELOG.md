@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.4](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.3...v1.0.4) (2024-04-26)
+
+
+### Documentation
+
+* **README:** fixed examples view for Ansible Galaxy ([2842d2a](https://github.com/antmelekhin/ansible-role-java/commit/2842d2a5db2132d0ba331822a7edb6d5139f5b22))
+
+
+### Fixes
+
+* fixed running a role in `check_mode` ([4733e8f](https://github.com/antmelekhin/ansible-role-java/commit/4733e8f836a9fa5f292d96ee870e8b22dccca001))
+
+
+### Styles
+
+* use double underline regiter variable ([6160133](https://github.com/antmelekhin/ansible-role-java/commit/61601339cd7108ede333d560f52fbabfeb9dd577))
+
+
+### Tests
+
+* add .tox as ignore ([5935e66](https://github.com/antmelekhin/ansible-role-java/commit/5935e6681c06eda34ae9a89810e857b3a1d59f5e))
+* add role_name prefix to instance name ([ef4fef3](https://github.com/antmelekhin/ansible-role-java/commit/ef4fef355fc7ba416ee413c0f97a9ba758a3016c))
+* run linters in its own workflow ([7ac1c0b](https://github.com/antmelekhin/ansible-role-java/commit/7ac1c0bd2379553055c92c10c2a16496c74c92f5))
+
 ## [1.0.3](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.2...v1.0.3) (2024-04-20)
 
 
