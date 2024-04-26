@@ -6,10 +6,10 @@
   tasks:
     - name: 'Check current Java version'
       ansible.builtin.command:
-        cmd: java --version
+        cmd: 'java --version'
       changed_when: false
-      register: _java_version_check
+      register: __java_version_check
 
     - name: 'Java version output'
       ansible.builtin.debug:
-        msg: '{{ _java_version_check.stdout }}'
+        var: __java_version_check.stdout
