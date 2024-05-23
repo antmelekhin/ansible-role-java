@@ -1,13 +1,15 @@
 Java
 ====
 
-An Ansible role to install Java.
+An Ansible role to install the `Java` package.
 
 Requirements
 ------------
 
 - Supported version of Ansible: 2.12 and highter.
 - Supported platforms:
+  - Amazon Linux
+    - all
   - Debian
     - 10
     - 11
@@ -24,7 +26,8 @@ Requirements
 Role Variables
 --------------
 
-- `java_package` `Java` package name (see default values in `vars/*.yml`).
+- `java_package` The Java package name (see default values in `vars/*.yml`).
+- `java_home` The JAVA_HOME environment variable is used to specify the location of the Java executable files.
 
 Dependencies
 ------------
@@ -34,11 +37,11 @@ None.
 Example Playbook
 ----------------
 
-Install `Java` package:
+Install the `Java` package:
 
 ```yaml
 ---
-- name: 'Install Java package'
+- name: 'Install the Java package'
   hosts: all
 
   roles:
