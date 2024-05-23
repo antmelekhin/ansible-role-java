@@ -7,8 +7,8 @@
   loop_control:
     loop_var: java_variables_file
 
-- name: 'Include tasks to install Java'
+- name: 'Install the Java package'
   ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
 
-- name: 'Include tasks to configure Java'
+- name: 'Configure the Java package'
   ansible.builtin.import_tasks: 'configure.yml'
