@@ -1,2 +1,3 @@
 ---
 java_package: '{{ _default_java_package }}'
+java_home: ''
