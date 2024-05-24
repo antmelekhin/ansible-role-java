@@ -1,5 +1,5 @@
 ---
-- name: 'Install Java package'
+- name: 'Debian | Install the Java package'
   ansible.builtin.apt:
     name: '{{ java_package }}'
     update_cache: true

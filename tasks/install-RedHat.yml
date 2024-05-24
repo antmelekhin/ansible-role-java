@@ -1,5 +1,5 @@
 ---
-- name: 'Install Java package'
+- name: 'RedHat | Install the Java package'
   ansible.builtin.package:
     name: '{{ java_package }}'
     state: 'present'

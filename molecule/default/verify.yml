@@ -4,12 +4,12 @@
   gather_facts: false
 
   tasks:
-    - name: 'Check current Java version'
+    - name: 'Check the current Java version'
       ansible.builtin.command:
         cmd: 'java --version'
       changed_when: false
       register: __java_version_check
 
-    - name: 'Java version output'
+    - name: 'The Java version output'
       ansible.builtin.debug:
-        var: __java_version_check.stdout
+        var: __java_version_check.stdout_lines[0]
