@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.4...v1.1.0) (2024-05-24)
+
+
+### Features
+
+* add `amazonlinux` support and improv common role style ([#4](https://github.com/antmelekhin/ansible-role-java/issues/4)) ([7f9930a](https://github.com/antmelekhin/ansible-role-java/commit/7f9930aa630bbfe90debf7ce886ff2c3b1b1882f))
+
+
+### Styles
+
+* add newline to end of file ([00a42db](https://github.com/antmelekhin/ansible-role-java/commit/00a42db90c4ec2d3b5a749a4af818e79e9b40421))
+
 ## [1.0.4](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.3...v1.0.4) (2024-04-26)
 
 
