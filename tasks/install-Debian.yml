@@ -1,7 +1,37 @@
 ---
+- name: 'Debian | Configure the Amazon Corretto repository'
+  when: java_distribution == 'corretto'
+  become: true
+  block:
+    - name: 'Debian | Ensure the dependencies are installed'
+      ansible.builtin.apt:
+        name:
+          - 'apt-transport-https'
+          - 'ca-certificates'
+          - 'gnupg'
+        update_cache: true
+        state: 'present'
+      when: not ansible_check_mode
+
+    - name: 'Debian | Add the Amazon Corretto repository GPG key'
+      ansible.builtin.apt_key:
+        url: '{{ java_corretto_repository_gpgkey_url }}'
+        keyring: '{{ _java_corretto_local_gpgkey_path }}'
+        state: 'present'
+
+    - name: 'Debian | Add the Amazon Corretto repository'
+      ansible.builtin.template:
+        src: 'corretto.list.j2'
+        dest: '/etc/apt/sources.list.d/corretto.list'
+        owner: 'root'
+        group: 'root'
+        mode: 0644
+
 - name: 'Debian | Install the Java package'
   ansible.builtin.apt:
-    name: '{{ java_package }}'
+    name: '{{ java_corretto_package_name
+      if java_distribution == "corretto"
+      else java_openjdk_package_name }}'
     update_cache: true
     state: 'present'
   when: not ansible_check_mode
