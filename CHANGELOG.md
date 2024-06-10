@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.1.0...v1.2.0) (2024-06-10)
+
+
+### Features
+
+* add corretto java package ([#5](https://github.com/antmelekhin/ansible-role-java/issues/5)) ([17b0573](https://github.com/antmelekhin/ansible-role-java/commit/17b05736abb43cfabe7477b212f623d319ec99c7))
+
+
+### Styles
+
+* minor changes ([ee3da9c](https://github.com/antmelekhin/ansible-role-java/commit/ee3da9c803c209b4577d230c0de1696bacd524ed))
+
 ## [1.1.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.0.4...v1.1.0) (2024-05-24)
 
 
