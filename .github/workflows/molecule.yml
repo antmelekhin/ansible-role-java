@@ -34,12 +34,31 @@ jobs:
       matrix:
         include:
           - distro: 'amazonlinux-2023'
+            playbook: 'converge.yml'
           - distro: 'debian-11'
+            playbook: 'converge.yml'
+          - distro: 'debian-11'
+            playbook: 'converge-corretto.yml'
           - distro: 'debian-12'
+            playbook: 'converge.yml'
+          - distro: 'debian-12'
+            playbook: 'converge-corretto.yml'
           - distro: 'rockylinux-8'
+            playbook: 'converge.yml'
+          - distro: 'rockylinux-8'
+            playbook: 'converge-corretto.yml'
           - distro: 'rockylinux-9'
+            playbook: 'converge.yml'
+          - distro: 'rockylinux-9'
+            playbook: 'converge-corretto.yml'
           - distro: 'ubuntu-20.04'
+            playbook: 'converge.yml'
+          - distro: 'ubuntu-20.04'
+            playbook: 'converge-corretto.yml'
           - distro: 'ubuntu-22.04'
+            playbook: 'converge.yml'
+          - distro: 'ubuntu-22.04'
+            playbook: 'converge-corretto.yml'
 
     steps:
       - name: 'Checkout the codebase'
@@ -53,3 +72,4 @@ jobs:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           TAG: ${{ matrix.distro }}
+          MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
