@@ -1,0 +1,6 @@
+---
+- name: 'Converge'
+  hosts: all
+  roles:
+    - role: antmelekhin.java
+      java_distribution: 'corretto'

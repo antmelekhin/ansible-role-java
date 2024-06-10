@@ -1,2 +1,2 @@
 ---
-_default_java_package: "{{ (ansible_distribution_major_version == '2018') | ternary('java-1.8.0-openjdk', 'java-17-amazon-corretto') }}"
+_java_corretto_package_name: 'java-17-amazon-corretto-devel'

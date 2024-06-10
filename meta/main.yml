@@ -11,7 +11,8 @@ galaxy_info:
   platforms:
     - name: 'Amazon Linux'
       versions:
-        - 'all'
+        - '2'
+        - '2023'
     - name: 'Debian'
       versions:
         - 'buster'
