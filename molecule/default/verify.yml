@@ -12,4 +12,4 @@
 
     - name: 'The Java version output'
       ansible.builtin.debug:
-        var: __java_version_check.stdout_lines[1]
+        msg: 'The current Java version is {{ __java_version_check.stdout_lines[1] }}'
