@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.2.0...v1.3.0) (2024-07-25)
+
+
+### Improvements
+
+* merge OS-specific variables into the main file ([#6](https://github.com/antmelekhin/ansible-role-java/issues/6)) ([d330b37](https://github.com/antmelekhin/ansible-role-java/commit/d330b372dc86392e67436a448c8ffde95650d055))
+
+
+### Tests
+
+* clean version output in the default scenario ([0910474](https://github.com/antmelekhin/ansible-role-java/commit/09104742edd1f72a644d61717089f519382ca04d))
+
 ## [1.2.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.1.0...v1.2.0) (2024-06-10)
 
 
