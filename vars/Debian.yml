@@ -1,7 +1,0 @@
----
-_java_corretto_repository_mirror_url: 'https://apt.corretto.aws'
-_java_corretto_repository_gpgkey_url: '{{ _java_corretto_repository_mirror_url }}/corretto.key'
-_java_corretto_local_gpgkey_path: '/usr/share/keyrings/corretto-archive-keyring.gpg'
-_java_corretto_package_name: 'java-17-amazon-corretto-jdk'
-
-_java_openjdk_package_name: "{{ (ansible_distribution_major_version == '10') | ternary('openjdk-11-jre', 'openjdk-17-jre') }}"

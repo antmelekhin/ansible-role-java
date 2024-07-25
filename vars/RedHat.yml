@@ -1,6 +1,0 @@
----
-_java_corretto_repository_mirror_url: 'https://yum.corretto.aws'
-_java_corretto_repository_gpgkey_url: '{{ _java_corretto_repository_mirror_url }}/corretto.key'
-_java_corretto_package_name: 'java-17-amazon-corretto-devel'
-
-_java_openjdk_package_name: "{{ (ansible_distribution_major_version == '7') | ternary('java-11-openjdk', 'java-17-openjdk') }}"

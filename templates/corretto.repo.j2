@@ -2,7 +2,7 @@
 
 [AmazonCorretto]
 name=Amazon Corretto
-baseurl={{ java_corretto_repository_mirror_url }}/$basearch
+baseurl={{ java_corretto_repository | default(_java_corretto_redhat_repository) }}
 enabled=1
-gpgkey={{ java_corretto_repository_gpgkey_url }}
 gpgcheck=1
+gpgkey={{ _java_corretto_redhat_repository_gpgkey_url }}
