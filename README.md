@@ -15,6 +15,9 @@ Requirements
     - 10
     - 11
     - 12
+  - Fedora
+    - 39
+    - 40
   - RHEL
     - 7
     - 8
