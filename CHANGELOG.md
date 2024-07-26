@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.3.0...v1.4.0) (2024-07-26)
+
+
+### Features
+
+* add fedora support ([1c4b83a](https://github.com/antmelekhin/ansible-role-java/commit/1c4b83a74069ba0c3e816fa33ab9a1588f3db590))
+
 ## [1.3.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.2.0...v1.3.0) (2024-07-25)
 
 
