@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/antmelekhin/ansible-role-java/compare/v1.4.0...v1.4.1) (2024-07-27)
+
+
+### Fixes
+
+* split `vars/main.yml` file by distribution ([#7](https://github.com/antmelekhin/ansible-role-java/issues/7)) ([fae39fc](https://github.com/antmelekhin/ansible-role-java/commit/fae39fcd5ae1358aa87a0b9887ca51425539e106))
+
 ## [1.4.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.3.0...v1.4.0) (2024-07-26)
 
 
