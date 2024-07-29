@@ -1,0 +1,39 @@
+---
+argument_specs:
+  main:
+    short_description: 'Java'
+    description:
+      - 'An Ansible role to install the Java package.'
+      - 'This role installs the C(OpenJDK) or C(Amazon Corretto) distribution.'
+    author:
+      - 'Melekhin Anton'
+    options:
+      java_distribution:
+        type: 'str'
+        description: 'The Java package distribution type.'
+        choices:
+          - 'openjdk'
+          - 'corretto'
+        default: 'openjdk'
+      java_openjdk_package_name:
+        type: 'str'
+        description: 'The OpenJDK package name.'
+      java_corretto_repository_mirror_url:
+        type: 'str'
+        description:
+          - 'The Amazon Corretto repository mirror.'
+          - 'By default, the role uses https://apt.corretto.aws for Debian-based distributions and https://yum.corretto.aws for RedHat-based distributions.'
+      java_corretto_repository_gpgkey_url:
+        type: 'str'
+        description:
+          - 'Specify where to fetch the Amazon Corretto GPG key file from.'
+          - 'By default, the role uses the official Amazon Corretto GPG key.'
+      java_corretto_repository:
+        type: 'str'
+        description: 'Specify the Amazon Corretto repository.'
+      java_corretto_package_name:
+        type: 'str'
+        description: 'The Amazon Corretto package name.'
+      java_home:
+        type: 'str'
+        description: 'The JAVA_HOME environment variable is used to specify the location of the Java executable files.'
