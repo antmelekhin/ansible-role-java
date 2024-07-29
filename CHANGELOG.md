@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.4.1...v1.5.0) (2024-07-29)
+
+
+### Features
+
+* add `meta/argument_specs.yml` ([0cdc730](https://github.com/antmelekhin/ansible-role-java/commit/0cdc7301d1bcba08e6d5c66563c45719a48ebd8e))
+
 ## [1.4.1](https://github.com/antmelekhin/ansible-role-java/compare/v1.4.0...v1.4.1) (2024-07-27)
 
 
