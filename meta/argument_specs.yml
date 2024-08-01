@@ -18,22 +18,27 @@ argument_specs:
       java_openjdk_package_name:
         type: 'str'
         description: 'The OpenJDK package name.'
+        default: '{{ __java_openjdk_package_name }}'
       java_corretto_repository_mirror_url:
         type: 'str'
         description:
           - 'The Amazon Corretto repository mirror.'
           - 'By default, the role uses https://apt.corretto.aws for Debian-based distributions and https://yum.corretto.aws for RedHat-based distributions.'
+        default: '{{ __java_corretto_repository_mirror_url }}'
       java_corretto_repository_gpgkey_url:
         type: 'str'
         description:
           - 'Specify where to fetch the Amazon Corretto GPG key file from.'
           - 'By default, the role uses the official Amazon Corretto GPG key.'
+        default: '{{ __java_corretto_repository_gpgkey_url }}'
       java_corretto_repository:
         type: 'str'
         description: 'Specify the Amazon Corretto repository.'
+        default: '{{ __java_corretto_repository }}'
       java_corretto_package_name:
         type: 'str'
         description: 'The Amazon Corretto package name.'
+        default: '{{ __java_corretto_package_name }}'
       java_home:
         type: 'str'
         description: 'The JAVA_HOME environment variable is used to specify the location of the Java executable files.'

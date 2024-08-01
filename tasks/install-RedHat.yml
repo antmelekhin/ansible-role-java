@@ -22,8 +22,9 @@
 
 - name: "RedHat | Install the {{ (java_distribution == 'corretto') | ternary('Amazon Corretto', 'OpenJDK') }} package"
   ansible.builtin.package:
-    name: "{{ java_corretto_package_name | default(__java_corretto_package_name)
-      if java_distribution == 'corretto' or ansible_distribution == 'Amazon'
-      else java_openjdk_package_name | default(__java_openjdk_package_name) }}"
+    name: "{{ java_corretto_package_name
+      if java_distribution == 'corretto' or
+      ansible_distribution == 'Amazon'
+      else java_openjdk_package_name }}"
     state: 'present'
   become: true

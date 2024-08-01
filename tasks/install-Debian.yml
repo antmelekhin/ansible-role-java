@@ -16,7 +16,7 @@
 
     - name: 'Debian | Add the Amazon Corretto repository GPG key'
       ansible.builtin.apt_key:
-        url: '{{ java_corretto_repository_gpgkey_url | default(__java_corretto_repository_gpgkey_url) }}'
+        url: '{{ java_corretto_repository_gpgkey_url }}'
         keyring: '{{ __java_corretto_repository_gpgkey_keyring }}'
         state: 'present'
 
@@ -28,11 +28,11 @@
         group: 'root'
         mode: 0644
 
-- name: "Debian | Install the {{ (java_distribution == 'corretto') | ternary('Amazon Corretto', 'OpenJDK') }} package"
+- name: 'Debian | Install the {{ __java_package_distribution }} package'
   ansible.builtin.apt:
-    name: "{{ java_corretto_package_name | default(__java_corretto_package_name)
-      if java_distribution == 'corretto'
-      else java_openjdk_package_name | default(__java_openjdk_package_name) }}"
+    name: '{{ java_corretto_package_name
+      if java_distribution == "corretto"
+      else java_openjdk_package_name }}'
     update_cache: true
     state: 'present'
   ignore_errors: '{{ ansible_check_mode }}'
