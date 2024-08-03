@@ -20,7 +20,7 @@
         group: 'root'
         mode: 0644
 
-- name: "RedHat | Install the {{ (java_distribution == 'corretto') | ternary('Amazon Corretto', 'OpenJDK') }} package"
+- name: 'RedHat | Install the {{ __java_package_distribution }} package'
   ansible.builtin.package:
     name: "{{ java_corretto_package_name
       if java_distribution == 'corretto' or
