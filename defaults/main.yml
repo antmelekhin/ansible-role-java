@@ -3,13 +3,13 @@
 java_distribution: 'openjdk'
 
 # Install the OpenJDK package
-# java_openjdk_package_name: ''
+java_openjdk_package_name: '{{ __java_openjdk_package_name }}'
 
 # Install the Java package from the Amazon Corretto repository
-# java_corretto_repository_mirror_url: ''
-# java_corretto_repository_gpgkey_url: ''
-# java_corretto_repository: ''
-# java_corretto_package_name: ''
+java_corretto_repository_mirror_url: '{{ __java_corretto_repository_mirror_url }}'
+java_corretto_repository_gpgkey_url: '{{ __java_corretto_repository_gpgkey_url }}'
+java_corretto_repository: '{{ __java_corretto_repository }}'
+java_corretto_package_name: '{{ __java_corretto_package_name }}'
 
 # Configure the JAVA_HOME environment variable
 java_home: ''

@@ -2,7 +2,7 @@
 
 [AmazonCorretto]
 name=Amazon Corretto
-baseurl={{ java_corretto_repository | default(__java_corretto_repository) }}
+baseurl={{ java_corretto_repository }}
 enabled=1
 gpgcheck=1
-gpgkey={{ java_corretto_repository_gpgkey_url | default(__java_corretto_repository_gpgkey_url) }}
+gpgkey={{ java_corretto_repository_gpgkey_url }}

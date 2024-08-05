@@ -1,0 +1,35 @@
+---
+# A variable that is used to name the installation task
+__java_package_distribution: "{{ (java_distribution == 'corretto') | ternary('Amazon Corretto', 'OpenJDK') }}"
+
+# Default OpenJDK package
+__java_openjdk_package_name_dict:
+  Debian: "{{ (ansible_distribution_major_version == '10') | ternary('openjdk-11-jdk', 'openjdk-17-jdk') }}"
+  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('java-11-openjdk', 'java-17-openjdk') }}"
+
+__java_openjdk_package_name: '{{ __java_openjdk_package_name_dict[ansible_os_family] }}'
+
+# Default Amazon Corretto mirror
+__java_corretto_repository_mirror_url_dict:
+  Debian: 'https://apt.corretto.aws'
+  RedHat: 'https://yum.corretto.aws'
+
+__java_corretto_repository_mirror_url: '{{ __java_corretto_repository_mirror_url_dict[ansible_os_family] }}'
+
+# Default Amazon Corretto GPG key
+__java_corretto_repository_gpgkey_url: '{{ __java_corretto_repository_mirror_url }}/corretto.key'
+__java_corretto_repository_gpgkey_keyring: '/usr/share/keyrings/corretto-archive-keyring.gpg'
+
+# Default Amazon Corretto repository
+__java_corretto_repository_dict:
+  Debian: '{{ __java_corretto_repository_mirror_url }} stable main'
+  RedHat: '{{ __java_corretto_repository_mirror_url }}/$basearch'
+
+__java_corretto_repository: '{{ __java_corretto_repository_dict[ansible_os_family] }}'
+
+# Default Amazon Corretto package
+__java_corretto_package_name_dict:
+  Debian: 'java-17-amazon-corretto-jdk'
+  RedHat: 'java-17-amazon-corretto-devel'
+
+__java_corretto_package_name: '{{ __java_corretto_package_name_dict[ansible_os_family] }}'
