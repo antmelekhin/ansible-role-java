@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.5.0...v1.6.0) (2024-08-10)
+
+
+### Improvements
+
+* merge OS-specific variables into the `vars/main.yml` file ([#8](https://github.com/antmelekhin/ansible-role-java/issues/8)) ([d05d72f](https://github.com/antmelekhin/ansible-role-java/commit/d05d72f545acf7e10de975341cb8a8c1fd70bedc))
+
 ## [1.5.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.4.1...v1.5.0) (2024-07-29)
 
 
