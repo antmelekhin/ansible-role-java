@@ -5,7 +5,7 @@ __java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_dis
 # Default OpenJDK package
 __java_openjdk_package_name_dict:
   Debian: "{{ (ansible_distribution_major_version == '10') | ternary('openjdk-11-jdk', 'openjdk-17-jdk') }}"
-  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('java-11-openjdk', 'java-17-openjdk') }}"
+  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('java-11-openjdk-devel', 'java-17-openjdk-devel') }}"
 
 __java_openjdk_package_name: '{{ __java_openjdk_package_name_dict[ansible_os_family] }}'
 
