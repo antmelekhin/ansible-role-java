@@ -1,6 +1,6 @@
 ---
 # A variable that is used to name the installation task
-__java_package_distribution: "{{ (java_distribution == 'corretto') | ternary('Amazon Corretto', 'OpenJDK') }}"
+__java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_distribution == 'Amazon') | ternary('Amazon Corretto', 'OpenJDK') }}"
 
 # Default OpenJDK package
 __java_openjdk_package_name_dict:
