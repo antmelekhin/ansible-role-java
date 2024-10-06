@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.7.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.6.0...v1.7.0) (2024-10-06)
+
+
+### Continuous Integration
+
+* use `ubuntu-22.04` instead of `ubuntu-latest` ([1db6cd5](https://github.com/antmelekhin/ansible-role-java/commit/1db6cd5720f8ce938be8e0c0c59404f5262072be))
+
+
+### Features
+
+* add `java_type` variable ([#9](https://github.com/antmelekhin/ansible-role-java/issues/9)) ([9a8b3cd](https://github.com/antmelekhin/ansible-role-java/commit/9a8b3cdaa87e25e7eab7ae28ed8b61eed5a0e33b))
+
+
+### Styles
+
+* minor fixes ([884ece5](https://github.com/antmelekhin/ansible-role-java/commit/884ece53a077b4857c00704e3f0b4db2242dda58))
+
 ## [1.6.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.5.0...v1.6.0) (2024-08-10)
 
 
