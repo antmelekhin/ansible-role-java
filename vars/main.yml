@@ -3,9 +3,25 @@
 __java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_distribution == 'Amazon') | ternary('Amazon Corretto', 'OpenJDK') }}"
 
 # Default OpenJDK package
+__java_openjdk_major_version_dict:
+  Debian: "{{ (ansible_distribution_major_version == '10') | ternary('11', '17') }}"
+  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('11', '17') }}"
+
+__java_openjdk_major_version: '{{ __java_openjdk_major_version_dict[ansible_os_family] }}'
+
+__java_openjdk_package_name_suffix_dict:
+  jre:
+    Debian: 'jre'
+    RedHat: 'openjdk'
+  jdk:
+    Debian: 'jdk'
+    RedHat: 'openjdk-devel'
+
+__java_openjdk_package_name_suffix: '{{ __java_openjdk_package_name_suffix_dict[java_type][ansible_os_family] }}'
+
 __java_openjdk_package_name_dict:
-  Debian: "{{ (ansible_distribution_major_version == '10') | ternary('openjdk-11-jdk', 'openjdk-17-jdk') }}"
-  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('java-11-openjdk-devel', 'java-17-openjdk-devel') }}"
+  Debian: 'openjdk-{{ __java_openjdk_major_version }}-{{ __java_openjdk_package_name_suffix }}'
+  RedHat: 'java-{{ __java_openjdk_major_version }}-{{ __java_openjdk_package_name_suffix }}'
 
 __java_openjdk_package_name: '{{ __java_openjdk_package_name_dict[ansible_os_family] }}'
 
