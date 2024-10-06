@@ -1,6 +1,7 @@
 ---
 # Install Java
 java_distribution: 'openjdk'
+java_type: 'jre'
 
 # Install the OpenJDK package
 java_openjdk_package_name: '{{ __java_openjdk_package_name }}'
