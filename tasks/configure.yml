@@ -1,8 +1,8 @@
 ---
 - name: 'Set JAVA_HOME if configured'
+  become: true
   ansible.builtin.template:
     src: 'java_home.sh.j2'
     dest: '/etc/profile.d/java_home.sh'
     mode: 0755
   when: java_home | length
-  become: true

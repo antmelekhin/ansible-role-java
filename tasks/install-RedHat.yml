@@ -21,10 +21,10 @@
         mode: 0644
 
 - name: 'RedHat | Install the {{ __java_package_distribution }} package'
+  become: true
   ansible.builtin.package:
     name: "{{ java_corretto_package_name
       if java_distribution == 'corretto' or
       ansible_distribution == 'Amazon'
       else java_openjdk_package_name }}"
     state: 'present'
-  become: true
