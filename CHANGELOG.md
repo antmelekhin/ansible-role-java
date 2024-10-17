@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.0...v1.7.1) (2024-10-17)
+
+
+### Code Refactoring
+
+* fix some variables form `vars/main.yml` file ([2f1d259](https://github.com/antmelekhin/ansible-role-java/commit/2f1d259e771d19dfeb12744d52a132c06a4cd810))
+
 ## [1.7.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.6.0...v1.7.0) (2024-10-06)
 
 
