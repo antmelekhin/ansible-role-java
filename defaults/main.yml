@@ -7,8 +7,8 @@ java_type: 'jre'
 java_openjdk_package_name: '{{ __java_openjdk_package_name }}'
 
 # Install the Java package from the Amazon Corretto repository
-java_corretto_repository_mirror_url: '{{ __java_corretto_repository_mirror_url }}'
-java_corretto_repository_gpgkey_url: '{{ __java_corretto_repository_gpgkey_url }}'
+java_corretto_repository_mirror_url: "https://{{ (ansible_os_family == 'Debian') | ternary('apt', 'yum') }}.corretto.aws"
+java_corretto_repository_gpgkey_url: '{{ java_corretto_repository_mirror_url }}/corretto.key'
 java_corretto_repository: '{{ __java_corretto_repository }}'
 java_corretto_package_name: '{{ __java_corretto_package_name }}'
 

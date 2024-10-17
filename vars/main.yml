@@ -25,21 +25,13 @@ __java_openjdk_package_name_dict:
 
 __java_openjdk_package_name: '{{ __java_openjdk_package_name_dict[ansible_os_family] }}'
 
-# Default Amazon Corretto mirror
-__java_corretto_repository_mirror_url_dict:
-  Debian: 'https://apt.corretto.aws'
-  RedHat: 'https://yum.corretto.aws'
-
-__java_corretto_repository_mirror_url: '{{ __java_corretto_repository_mirror_url_dict[ansible_os_family] }}'
-
 # Default Amazon Corretto GPG key
-__java_corretto_repository_gpgkey_url: '{{ __java_corretto_repository_mirror_url }}/corretto.key'
 __java_corretto_repository_gpgkey_keyring: '/usr/share/keyrings/corretto-archive-keyring.gpg'
 
 # Default Amazon Corretto repository
 __java_corretto_repository_dict:
-  Debian: '{{ __java_corretto_repository_mirror_url }} stable main'
-  RedHat: '{{ __java_corretto_repository_mirror_url }}/$basearch'
+  Debian: 'deb [signed-by={{ __java_corretto_repository_gpgkey_keyring }}] {{ java_corretto_repository_mirror_url }} stable main'
+  RedHat: '{{ java_corretto_repository_mirror_url }}/$basearch'
 
 __java_corretto_repository: '{{ __java_corretto_repository_dict[ansible_os_family] }}'
 

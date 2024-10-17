@@ -32,13 +32,13 @@ argument_specs:
         description:
           - 'The Amazon Corretto repository mirror.'
           - 'By default, the role uses https://apt.corretto.aws for Debian-based distributions and https://yum.corretto.aws for RedHat-based distributions.'
-        default: '{{ __java_corretto_repository_mirror_url }}'
+        default: "https://{{ (ansible_os_family == 'Debian') | ternary('apt', 'yum') }}.corretto.aws"
       java_corretto_repository_gpgkey_url:
         type: 'str'
         description:
           - 'Specify where to fetch the Amazon Corretto GPG key file from.'
           - 'By default, the role uses the official Amazon Corretto GPG key.'
-        default: '{{ __java_corretto_repository_gpgkey_url }}'
+        default: '{{ java_corretto_repository_mirror_url }}/corretto.key'
       java_corretto_repository:
         type: 'str'
         description: 'Specify the Amazon Corretto repository.'
