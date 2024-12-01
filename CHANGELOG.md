@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.1...v1.7.2) (2024-12-01)
+
+
+### Documentation
+
+* **README:** updated requirements ([ee69da3](https://github.com/antmelekhin/ansible-role-java/commit/ee69da31e6c68f2e3a02132210daa71dc8bf90b0))
+
 ## [1.7.1](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.0...v1.7.1) (2024-10-17)
 
 
