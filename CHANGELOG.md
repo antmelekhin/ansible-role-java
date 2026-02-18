@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.2...v1.7.3) (2026-02-18)
+
+
+### Fixes
+
+* make conditions work with newer ansible versions ([#10](https://github.com/antmelekhin/ansible-role-java/issues/10)) ([7eb26a5](https://github.com/antmelekhin/ansible-role-java/commit/7eb26a5d211cac7058f87b4ff304a156fb3f1cdc))
+
 ## [1.7.2](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.1...v1.7.2) (2024-12-01)
 
 
