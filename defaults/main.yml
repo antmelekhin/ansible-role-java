@@ -1,6 +1,7 @@
 ---
 # Install Java
 java_distribution: 'openjdk'
+java_major_version: '17'
 java_type: 'jre'
 
 # Install the OpenJDK package

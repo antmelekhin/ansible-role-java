@@ -4,8 +4,8 @@ __java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_dis
 
 # Default OpenJDK package
 __java_openjdk_major_version_dict:
-  Debian: "{{ (ansible_distribution_major_version == '10') | ternary('11', '17') }}"
-  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('11', '17') }}"
+  Debian: "{{ (ansible_distribution_major_version == '10') | ternary('11', java_major_version) }}"
+  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('11', java_major_version) }}"
 
 __java_openjdk_major_version: '{{ __java_openjdk_major_version_dict[ansible_os_family] }}'
 
@@ -37,7 +37,7 @@ __java_corretto_repository: '{{ __java_corretto_repository_dict[ansible_os_famil
 
 # Default Amazon Corretto package
 __java_corretto_package_name_dict:
-  Debian: 'java-17-amazon-corretto-jdk'
-  RedHat: 'java-17-amazon-corretto-devel'
+  Debian: 'java-{{ java_major_version }}-amazon-corretto-jdk'
+  RedHat: 'java-{{ java_major_version }}-amazon-corretto-devel'
 
 __java_corretto_package_name: '{{ __java_corretto_package_name_dict[ansible_os_family] }}'
