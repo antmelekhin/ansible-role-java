@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.3...v1.8.0) (2026-02-25)
+
+
+### Features
+
+* add `java_major_version` variable ([#11](https://github.com/antmelekhin/ansible-role-java/issues/11)) ([6b15eec](https://github.com/antmelekhin/ansible-role-java/commit/6b15eec56671bdd1e716980041b8c4eb6185216e))
+
 ## [1.7.3](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.2...v1.7.3) (2026-02-18)
 
 
