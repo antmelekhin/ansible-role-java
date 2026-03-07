@@ -20,7 +20,7 @@
         group: 'root'
         mode: 0644
 
-- name: 'RedHat | Install the {{ __java_package_distribution }} package'
+- name: 'RedHat | Install {{ __java_package_distribution }} package'
   become: true
   ansible.builtin.package:
     name: "{{ java_corretto_package_name

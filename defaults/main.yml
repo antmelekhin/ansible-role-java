@@ -3,6 +3,7 @@
 java_distribution: 'openjdk'
 java_major_version: '17'
 java_type: 'jre'
+java_install_from: 'package'
 
 # Install the OpenJDK package
 java_openjdk_package_name: '{{ __java_openjdk_package_name }}'
@@ -12,6 +13,10 @@ java_corretto_repository_mirror_url: "https://{{ (ansible_os_family == 'Debian')
 java_corretto_repository_gpgkey_url: '{{ java_corretto_repository_mirror_url }}/corretto.key'
 java_corretto_repository: '{{ __java_corretto_repository }}'
 java_corretto_package_name: '{{ __java_corretto_package_name }}'
+
+# Install the OpenJDK binary
+java_openjdk_binary_download_path: '/tmp'
+java_openjdk_binary_install_path: '/opt/java/openjdk/{{ java_major_version }}'
 
 # Configure the JAVA_HOME environment variable
 java_home: ''

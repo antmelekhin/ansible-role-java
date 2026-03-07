@@ -1,6 +1,14 @@
 ---
-- name: 'Install the Java package'
-  ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
+- name: 'Install Java package'
+  ansible.builtin.include_tasks: 'package/install-{{ ansible_os_family }}.yml'
+  when:
+    - java_install_from == 'package' and
+      ansible_os_family in ['Debian', 'RedHat']
 
-- name: 'Configure the Java package'
+- name: 'Install Java binary'
+  ansible.builtin.include_tasks: 'binary/install-{{ ansible_system }}.yml'
+  when:
+    - java_install_from == 'binary'
+
+- name: 'Configure Java package'
   ansible.builtin.import_tasks: 'configure.yml'

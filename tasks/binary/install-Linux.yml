@@ -1,0 +1,61 @@
+---
+- name: 'Fetch OpenJDK {{ java_major_version }} release page'
+  ansible.builtin.uri:
+    url: 'https://jdk.java.net/{{ java_major_version }}/'
+    validate_certs: false
+    return_content: true
+  register: __java_openjdk_binary_release_page
+
+- name: 'Fetch OpenJDK {{ java_major_version }} archived page'
+  ansible.builtin.uri:
+    url: 'https://jdk.java.net/archive/'
+    validate_certs: false
+    return_content: true
+  register: __java_openjdk_binary_archived_page
+  when:
+    - not __java_openjdk_binary_release_page['content']
+      is regex('https://download.java.net[^\"]+linux-x64_bin\.tar.gz')
+
+- name: 'Find OpenJDK {{ java_major_version }} release download url'
+  ansible.builtin.set_fact:
+    __java_openjdk_binary_download_url: >-
+      {{
+        (
+          __java_openjdk_binary_release_page['content']
+          if (__java_openjdk_binary_archived_page['skipped'] is defined
+            and __java_openjdk_binary_archived_page['skipped'])
+          else __java_openjdk_binary_archived_page['content']
+        )
+        | regex_findall('https://download.java.net/java/GA/jdk'
+          + java_major_version + '[.\d]*/[\d\w]+/'
+          + '[.\d]+/GPL/openjdk-'
+          + java_major_version + '[\d._]+linux-x64_bin[\w\d.]+')
+      }}
+
+- name: 'Create OpenJDK {{ java_major_version }} directory'
+  become: true
+  ansible.builtin.file:
+    path: '{{ java_openjdk_binary_install_path }}'
+    owner: 'root'
+    group: 'root'
+    state: 'directory'
+    mode: 0755
+
+- name: 'Download OpenJDK {{ java_major_version }} archive to a local folder'
+  become: false
+  ansible.builtin.get_url:
+    url: '{{ __java_openjdk_binary_download_url[0] }}'
+    dest: '{{ java_openjdk_binary_download_path }}/{{ (__java_openjdk_binary_download_url[0] | urlsplit).path | basename }}'
+    checksum: 'sha256:{{ __java_openjdk_binary_download_url[1] }}'
+    mode: 0644
+  delegate_to: localhost
+  check_mode: false
+
+- name: 'Unarchive OpenJDK {{ java_major_version }} on a target host'
+  become: true
+  ansible.builtin.unarchive:
+    src: '{{ java_openjdk_binary_download_path }}/{{ (__java_openjdk_binary_download_url[0] | urlsplit).path | basename }}'
+    dest: '{{ java_openjdk_binary_install_path }}'
+    owner: 'root'
+    group: 'root'
+    extra_opts: ['--strip-components=1']

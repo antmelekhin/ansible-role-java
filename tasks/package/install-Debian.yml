@@ -28,7 +28,7 @@
         group: 'root'
         mode: 0644
 
-- name: 'Debian | Install the {{ __java_package_distribution }} package'
+- name: 'Debian | Install {{ __java_package_distribution }} package'
   become: true
   ansible.builtin.apt:
     name: '{{ java_corretto_package_name

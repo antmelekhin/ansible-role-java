@@ -27,6 +27,15 @@ argument_specs:
           - 'jre'
           - 'jdk'
         default: 'jre'
+      java_install_from:
+        type: 'str'
+        description:
+          - 'Specify origin for Java installation.'
+          - "'package' option only works for Debian and RedHat based distributions."
+        choices:
+          - 'binary'
+          - 'package'
+        default: 'package'
       java_openjdk_package_name:
         type: 'str'
         description: 'The OpenJDK package name.'
@@ -51,6 +60,14 @@ argument_specs:
         type: 'str'
         description: 'The Amazon Corretto package name.'
         default: '{{ __java_corretto_package_name }}'
+      java_openjdk_binary_download_path:
+        type: 'path'
+        description: 'Local path to download the binary.'
+        default: '/tmp'
+      java_openjdk_binary_install_path:
+        type: 'path'
+        description: 'OpenJDK installation folder.'
+        default: '/opt/java/openjdk/{{ java_major_version }}'
       java_home:
         type: 'str'
         description: 'The JAVA_HOME environment variable is used to specify the location of the Java executable files.'
