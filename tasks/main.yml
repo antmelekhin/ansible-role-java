@@ -1,6 +1,6 @@
 ---
 - name: 'Install the Java package'
-  ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
+  ansible.builtin.include_tasks: "install-{{ ansible_facts['os_family'] }}.yml"
 
 - name: 'Configure the Java package'
   ansible.builtin.import_tasks: 'configure.yml'
