@@ -1,13 +1,13 @@
 ---
 # A variable that is used to name the installation task
-__java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_distribution == 'Amazon') | ternary('Amazon Corretto', 'OpenJDK') }}"
+__java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_facts['distribution'] == 'Amazon') | ternary('Amazon Corretto', 'OpenJDK') }}"
 
 # Default OpenJDK package
 __java_openjdk_major_version_dict:
-  Debian: "{{ (ansible_distribution_major_version == '10') | ternary('11', java_major_version) }}"
-  RedHat: "{{ (ansible_distribution_major_version == '7') | ternary('11', java_major_version) }}"
+  Debian: "{{ (ansible_facts['distribution_major_version'] == '10') | ternary('11', java_major_version) }}"
+  RedHat: "{{ (ansible_facts['distribution_major_version'] == '7') | ternary('11', java_major_version) }}"
 
-__java_openjdk_major_version: '{{ __java_openjdk_major_version_dict[ansible_os_family] }}'
+__java_openjdk_major_version: "{{ __java_openjdk_major_version_dict[ansible_facts['os_family']] }}"
 
 __java_openjdk_package_name_suffix_dict:
   jre:
@@ -17,13 +17,13 @@ __java_openjdk_package_name_suffix_dict:
     Debian: 'jdk'
     RedHat: 'openjdk-devel'
 
-__java_openjdk_package_name_suffix: '{{ __java_openjdk_package_name_suffix_dict[java_type][ansible_os_family] }}'
+__java_openjdk_package_name_suffix: "{{ __java_openjdk_package_name_suffix_dict[java_type][ansible_facts['os_family']] }}"
 
 __java_openjdk_package_name_dict:
   Debian: 'openjdk-{{ __java_openjdk_major_version }}-{{ __java_openjdk_package_name_suffix }}'
   RedHat: 'java-{{ __java_openjdk_major_version }}-{{ __java_openjdk_package_name_suffix }}'
 
-__java_openjdk_package_name: '{{ __java_openjdk_package_name_dict[ansible_os_family] }}'
+__java_openjdk_package_name: "{{ __java_openjdk_package_name_dict[ansible_facts['os_family']] }}"
 
 # Default Amazon Corretto GPG key
 __java_corretto_repository_gpgkey_keyring: '/usr/share/keyrings/corretto-archive-keyring.gpg'
@@ -33,11 +33,11 @@ __java_corretto_repository_dict:
   Debian: 'deb [signed-by={{ __java_corretto_repository_gpgkey_keyring }}] {{ java_corretto_repository_mirror_url }} stable main'
   RedHat: '{{ java_corretto_repository_mirror_url }}/$basearch'
 
-__java_corretto_repository: '{{ __java_corretto_repository_dict[ansible_os_family] }}'
+__java_corretto_repository: "{{ __java_corretto_repository_dict[ansible_facts['os_family']] }}"
 
 # Default Amazon Corretto package
 __java_corretto_package_name_dict:
   Debian: 'java-{{ java_major_version }}-amazon-corretto-jdk'
   RedHat: 'java-{{ java_major_version }}-amazon-corretto-devel'
 
-__java_corretto_package_name: '{{ __java_corretto_package_name_dict[ansible_os_family] }}'
+__java_corretto_package_name: "{{ __java_corretto_package_name_dict[ansible_facts['os_family']] }}"

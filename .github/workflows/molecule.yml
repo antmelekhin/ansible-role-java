@@ -20,8 +20,8 @@ jobs:
 
       - name: 'Run linters'
         run: |
-          pip3 install --no-cache-dir tox
-          tox -e lint-2.16
+          pip3 install --no-cache-dir tox==4.49.*
+          tox -e lint2.16
 
   molecule:
     name: 'Molecule'
@@ -48,21 +48,17 @@ jobs:
             playbook: 'converge.yml'
           - distro: 'fedora-40'
             playbook: 'converge-corretto.yml'
-          - distro: 'rockylinux-8'
-            playbook: 'converge.yml'
-          - distro: 'rockylinux-8'
-            playbook: 'converge-corretto.yml'
           - distro: 'rockylinux-9'
             playbook: 'converge.yml'
           - distro: 'rockylinux-9'
             playbook: 'converge-corretto.yml'
-          - distro: 'ubuntu-20.04'
+          - distro: 'ubuntu-22.04'
             playbook: 'converge.yml'
-          - distro: 'ubuntu-20.04'
+          - distro: 'ubuntu-22.04'
             playbook: 'converge-corretto.yml'
-          - distro: 'ubuntu-22.04'
+          - distro: 'ubuntu-24.04'
             playbook: 'converge.yml'
-          - distro: 'ubuntu-22.04'
+          - distro: 'ubuntu-24.04'
             playbook: 'converge-corretto.yml'
 
     steps:
@@ -76,7 +72,7 @@ jobs:
 
       - name: 'Testing an Ansible role with Molecule'
         run: |
-          pip3 install --no-cache-dir tox
+          pip3 install --no-cache-dir tox==4.49.*
           tox
         env:
           TAG: ${{ matrix.distro }}

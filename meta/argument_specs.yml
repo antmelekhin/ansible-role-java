@@ -45,7 +45,7 @@ argument_specs:
         description:
           - 'The Amazon Corretto repository mirror.'
           - 'By default, the role uses https://apt.corretto.aws for Debian-based distributions and https://yum.corretto.aws for RedHat-based distributions.'
-        default: "https://{{ (ansible_os_family == 'Debian') | ternary('apt', 'yum') }}.corretto.aws"
+        default: "https://{{ (ansible_facts['os_family'] == 'Debian') | ternary('apt', 'yum') }}.corretto.aws"
       java_corretto_repository_gpgkey_url:
         type: 'str'
         description:
