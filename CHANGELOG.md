@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.9.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.8.0...v1.9.0) (2026-03-09)
+
+
+### Features
+
+* add `ubuntu-24.04` support ([ebe68ac](https://github.com/antmelekhin/ansible-role-java/commit/ebe68ac2428a276bc79a7ac3d93c8d60e09d56b4))
+
+
+### Fixes
+
+* use newer style ansible facts ([8d20d03](https://github.com/antmelekhin/ansible-role-java/commit/8d20d030851e4c468a3ba791d7112b0a7537a1c3))
+* use newer style ansible facts for RedHat tasks ([ce53110](https://github.com/antmelekhin/ansible-role-java/commit/ce53110d200649ba462766b56d50d60d1fcf6032))
+
 ## [1.8.0](https://github.com/antmelekhin/ansible-role-java/compare/v1.7.3...v1.8.0) (2026-02-25)
 
 
