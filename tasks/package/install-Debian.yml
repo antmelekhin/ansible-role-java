@@ -31,9 +31,9 @@
 - name: 'Debian | Install {{ __java_package_distribution }} package'
   become: true
   ansible.builtin.apt:
-    name: '{{ java_corretto_package_name
-      if java_distribution == "corretto"
-      else java_openjdk_package_name }}'
+    name: "{{ java_corretto_package_name
+      if java_distribution == 'corretto'
+      else java_openjdk_package_name }}"
     update_cache: true
     state: 'present'
   ignore_errors: '{{ ansible_check_mode }}'
