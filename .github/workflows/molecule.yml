@@ -56,13 +56,13 @@ jobs:
             playbook: 'converge.yml'
           - distro: 'rockylinux-9'
             playbook: 'converge-corretto.yml'
-          - distro: 'ubuntu-20.04'
+          - distro: 'ubuntu-22.04'
             playbook: 'converge.yml'
-          - distro: 'ubuntu-20.04'
+          - distro: 'ubuntu-22.04'
             playbook: 'converge-corretto.yml'
-          - distro: 'ubuntu-22.04'
+          - distro: 'ubuntu-24.04'
             playbook: 'converge.yml'
-          - distro: 'ubuntu-22.04'
+          - distro: 'ubuntu-24.04'
             playbook: 'converge-corretto.yml'
 
     steps:
