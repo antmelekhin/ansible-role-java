@@ -15,13 +15,18 @@ Requirements
     - 10
     - 11
     - 12
+    - 13
   - Fedora
     - 39
     - 40
+    - 41
+    - 42
+    - 43
   - RHEL
     - 7
     - 8
     - 9
+    - 10
   - Ubuntu
     - 18.04
     - 20.04
@@ -43,7 +48,7 @@ None.
 Example Playbook
 ----------------
 
-Install the `Java` package:
+Install `Java` latest package version:
 
 ```yaml
 ---
