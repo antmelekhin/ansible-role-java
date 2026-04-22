@@ -18,15 +18,20 @@ galaxy_info:
         - 'buster'
         - 'bullseye'
         - 'bookworm'
+        - 'trixie'
     - name: 'EL'
       versions:
         - '7'
         - '8'
         - '9'
+        - '10'
     - name: 'Fedora'
       versions:
         - '39'
         - '40'
+        - '41'
+        - '42'
+        - '43'
     - name: 'Ubuntu'
       versions:
         - 'bionic'
