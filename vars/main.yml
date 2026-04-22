@@ -3,6 +3,7 @@
 __java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_facts['distribution'] == 'Amazon') | ternary('Amazon Corretto', 'OpenJDK') }}"
 
 # Variables that is used to select latest java package version
+## OpenJDK
 __java_openjdk_package_supported_major_versions_dict:
   Debian-10: ['11']
   Debian-11: ['11', '17']
@@ -29,17 +30,30 @@ __java_openjdk_package_supported_major_versions: >-
     ]
     | default(
       __java_openjdk_package_supported_major_versions_dict[
-        ansible_facts['distribution'] ~ '-' ~ ansible_facts['distribution_major_version']
+        ansible_facts['os_family'] ~ '-' ~ ansible_facts['distribution_major_version']
       ]
     )
   }}
 
 __java_openjdk_package_latest_major_version: '{{ __java_openjdk_package_supported_major_versions | last }}'
 
-__java_corretto_package_supported_major_versions: ['1.8.0', '11', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26']
+## Amazon Corretto
+__java_corretto_package_supported_major_versions_dict:
+  all: ['1.8.0', '11', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26']
+  Amazon: ['1.8.0', '11', '17', '21', '22', '23', '24', '25']
+
+__java_corretto_package_supported_major_versions: >-
+  {{
+    (ansible_facts['distribution'] == 'Amazon') | ternary(
+      __java_corretto_package_supported_major_versions_dict['Amazon'],
+      __java_corretto_package_supported_major_versions_dict['all']
+    )
+  }}
+
 __java_corretto_package_latest_major_version: '{{ __java_corretto_package_supported_major_versions | last }}'
 
-__java_package_major_version: "{{ (java_distribution == 'corretto' or ansible_facts['distribution'] == 'Amazon') | ternary(__java_corretto_package_latest_major_version, __java_openjdk_package_latest_major_version) }}"
+## Finalize
+__java_package_major_version: "{{ (java_distribution == 'corretto') | ternary(__java_corretto_package_latest_major_version, __java_openjdk_package_latest_major_version) }}"
 
 # Default OpenJDK package
 __java_openjdk_package_name_suffix_dict:
