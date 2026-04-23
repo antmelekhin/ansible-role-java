@@ -53,7 +53,13 @@ __java_corretto_package_supported_major_versions: >-
 __java_corretto_package_latest_major_version: '{{ __java_corretto_package_supported_major_versions | last }}'
 
 ## Finalize
-__java_package_major_version: "{{ (java_distribution == 'openjdk') | ternary(__java_openjdk_package_latest_major_version, __java_corretto_package_latest_major_version) }}"
+__java_package_major_version: >-
+  {{
+    (java_distribution == 'corretto' or ansible_facts['distribution'] == 'Amazon') | ternary(
+      __java_corretto_package_latest_major_version,
+      __java_openjdk_package_latest_major_version,
+    )
+  }}
 
 # Default OpenJDK package
 __java_openjdk_package_name_suffix_dict:
