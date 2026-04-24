@@ -17,7 +17,7 @@ argument_specs:
       java_major_version:
         type: 'str'
         description: 'Major version of Java package.'
-        default: '17'
+        default: '{{ __java_package_major_version }}'
       java_type:
         type: 'str'
         description:

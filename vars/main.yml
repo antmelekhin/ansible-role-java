@@ -2,13 +2,66 @@
 # A variable that is used to name the installation task
 __java_package_distribution: "{{ (java_distribution == 'corretto' or ansible_facts['distribution'] == 'Amazon') | ternary('Amazon Corretto', 'OpenJDK') }}"
 
+# Variables that is used to select latest java package version
+## OpenJDK
+__java_openjdk_package_supported_major_versions_dict:
+  Debian-10: ['11']
+  Debian-11: ['11', '17']
+  Debian-12: ['17']
+  Debian-13: ['21', '25']
+  Ubuntu-18.04: ['8', '11', '17']
+  Ubuntu-20.04: ['8', '11', '13', '16', '17', '21']
+  Ubuntu-22.04: ['8', '11', '17', '18', '21', '25']
+  Ubuntu-24.04: ['8', '11', '17', '21', '25']
+  RedHat-7: ['1.6.0', '1.7.0', '1.8.0', '11']
+  RedHat-8: ['1.8.0', '11', '17', '21']
+  RedHat-9: ['1.8.0', '11', '17', '21', '25']
+  RedHat-10: ['21', '25']
+  Fedora-39: ['1.8.0', '11', '17', '21']
+  Fedora-40: ['1.8.0', '11', '17', '21']
+  Fedora-41: ['1.8.0', '11', '17', '21', '25']
+  Fedora-42: ['21', '25']
+  Fedora-43: ['21', '25']
+
+__java_openjdk_package_supported_major_versions: >-
+  {{
+    __java_openjdk_package_supported_major_versions_dict[
+      ansible_facts['distribution'] ~ '-' ~ ansible_facts['distribution_version']
+    ]
+    | default(
+      __java_openjdk_package_supported_major_versions_dict[
+        ansible_facts['os_family'] ~ '-' ~ ansible_facts['distribution_major_version']
+      ]
+    )
+  }}
+
+__java_openjdk_package_latest_major_version: '{{ __java_openjdk_package_supported_major_versions | last }}'
+
+## Amazon Corretto
+__java_corretto_package_supported_major_versions_dict:
+  all: ['1.8.0', '11', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26']
+  Amazon: ['1.8.0', '11', '17', '21', '22', '23', '24', '25']
+
+__java_corretto_package_supported_major_versions: >-
+  {{
+    (ansible_facts['distribution'] == 'Amazon') | ternary(
+      __java_corretto_package_supported_major_versions_dict['Amazon'],
+      __java_corretto_package_supported_major_versions_dict['all']
+    )
+  }}
+
+__java_corretto_package_latest_major_version: '{{ __java_corretto_package_supported_major_versions | last }}'
+
+## Finalize
+__java_package_major_version: >-
+  {{
+    (java_distribution == 'corretto' or ansible_facts['distribution'] == 'Amazon') | ternary(
+      __java_corretto_package_latest_major_version,
+      __java_openjdk_package_latest_major_version,
+    )
+  }}
+
 # Default OpenJDK package
-__java_openjdk_major_version_dict:
-  Debian: "{{ (ansible_facts['distribution_major_version'] == '10') | ternary('11', java_major_version) }}"
-  RedHat: "{{ (ansible_facts['distribution_major_version'] == '7') | ternary('11', java_major_version) }}"
-
-__java_openjdk_major_version: "{{ __java_openjdk_major_version_dict[ansible_facts['os_family']] }}"
-
 __java_openjdk_package_name_suffix_dict:
   jre:
     Debian: 'jre'
@@ -20,8 +73,8 @@ __java_openjdk_package_name_suffix_dict:
 __java_openjdk_package_name_suffix: "{{ __java_openjdk_package_name_suffix_dict[java_type][ansible_facts['os_family']] }}"
 
 __java_openjdk_package_name_dict:
-  Debian: 'openjdk-{{ __java_openjdk_major_version }}-{{ __java_openjdk_package_name_suffix }}'
-  RedHat: 'java-{{ __java_openjdk_major_version }}-{{ __java_openjdk_package_name_suffix }}'
+  Debian: 'openjdk-{{ java_major_version }}-{{ __java_openjdk_package_name_suffix }}'
+  RedHat: 'java-{{ java_major_version }}-{{ __java_openjdk_package_name_suffix }}'
 
 __java_openjdk_package_name: "{{ __java_openjdk_package_name_dict[ansible_facts['os_family']] }}"
 
