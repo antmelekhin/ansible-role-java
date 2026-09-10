@@ -26,7 +26,7 @@
         dest: '/etc/apt/sources.list.d/corretto.list'
         owner: 'root'
         group: 'root'
-        mode: 0644
+        mode: '0644'
 
 - name: 'Debian | Install {{ __java_package_distribution }} {{ java_major_version }} package'
   become: true

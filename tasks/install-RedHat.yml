@@ -18,7 +18,7 @@
         dest: '/etc/yum.repos.d/corretto.repo'
         owner: 'root'
         group: 'root'
-        mode: 0644
+        mode: '0644'
 
 - name: 'RedHat | Install {{ __java_package_distribution }} {{ java_major_version }} package'
   become: true
